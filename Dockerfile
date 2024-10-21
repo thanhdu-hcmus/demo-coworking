@@ -10,12 +10,11 @@ ENV DB_HOST=host.docker.internal
 ENV DB_PORT=5433
 ENV DB_NAME=mydatabase
 
-
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
 # Copy the current directory contents into the container at /usr/src/app
-COPY . .
+COPY analytics .
 
 # Install system dependencies
 RUN apt-get update && \
@@ -30,4 +29,3 @@ RUN pip install --upgrade pip setuptools wheel && \
 CMD ["python", "app.py"]
 
 EXPOSE 5153
-EXPOSE 5433
